@@ -30,7 +30,7 @@ namespace AdventCalender.DayProblems
             while (num > 0)
             {
                 num = (num / 3) - 2;  // Floors automatically
-                if (num < 0) { num = 0;}
+                if (num <= 0) { num = 0;}
                 sum += num;
             }
             return sum;
