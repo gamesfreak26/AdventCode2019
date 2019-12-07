@@ -30,14 +30,10 @@ namespace AdventCalender {
 
             int num = 0;
 
-            List<int> numList = new List<int>();
-            foreach (var line in splitLines) {
-                var lineTrim = line.Trim();
-                if (int.TryParse(lineTrim, out num)) {
-                    numList.Add(num);
-                }
-            }
-            day2Problem1.Something(numList);
+            int[] something = day2Problem1.Something(new []{1, 0, 0, 0, 99 });
+            
+            Console.WriteLine(something);
+            // day2Problem1.Something(numList);
             #endregion ^ Day2Problem1 Region
 
             Console.ReadLine();

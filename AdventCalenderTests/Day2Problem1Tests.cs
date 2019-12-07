@@ -21,7 +21,8 @@ namespace AdventCalenderTests
             int[] answerArray = new[] {2, 0, 0, 0, 99};
 
             Day2Problem1 day2Problem1 = new Day2Problem1();
-            Assert.Equal(answerArray, numberArray);
+            var arrays =  day2Problem1.Something(numberArray);
+            Assert.Equal(answerArray, arrays);
         }
     }
 }
