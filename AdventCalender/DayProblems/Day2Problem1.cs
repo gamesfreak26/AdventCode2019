@@ -6,6 +6,6 @@ namespace AdventCalender.DayProblems
 {
     public class Day2Problem1
     {
-        Stream
+        
     }
 }
