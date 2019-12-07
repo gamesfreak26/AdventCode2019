@@ -16,10 +16,10 @@ namespace AdventCalender.DayProblems
             var sum = 0;
             foreach (var line in lines) {
                 var lineTrim = line.Trim();
-                    if (int.TryParse(lineTrim, out num))
-                    {
-                        sum = SumNumber(num);
-                    }
+                if (int.TryParse(lineTrim, out num))
+                {
+                    sum = SumNumber(num);
+                }
             }
             return sum;
         }

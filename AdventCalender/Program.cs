@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using AdventCalender.DayProblems;
 
 namespace AdventCalender {
@@ -25,14 +27,28 @@ namespace AdventCalender {
 
             Day2Problem1 day2Problem1 = new Day2Problem1();
 
-            string[] linesForDay2 = day2Problem1.ReadLines(path2);
-            var splitLines = linesForDay2[0].Split(",");
+            //string[] linesForDay2 = day2Problem1.ReadLines(path2);
+            var linesForDay2 = File.ReadAllText(path2);
+            var splitLines = linesForDay2.Split(",");
 
-            int num = 0;
+            List<int> numberList = new List<int>();
 
-            int[] something = day2Problem1.Something(new []{1, 0, 0, 0, 99 });
+            //int num = 0;
+            //foreach (var number in splitLines) {
+            //    var lineTrim = number.Trim();
+            //    if (int.TryParse(lineTrim, out num)) {
+            //        numberList.Add(num);
+            //    }
+            //}
+
+            //var intArray = numberList.ToArray();
+            var intArray = splitLines.Select(x => int.Parse(x)).ToArray();
+
+            int[] something = day2Problem1.Something(intArray);
+            Console.WriteLine(something[0]);
+
+            //var somethingString = String.Join(",", something);
             
-            Console.WriteLine(something);
             // day2Problem1.Something(numList);
             #endregion ^ Day2Problem1 Region
 
