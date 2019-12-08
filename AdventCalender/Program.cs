@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using AdventCalender.DayProblems;
 using AdventCalender.DayProblems.Day2;
+using AdventCalender.DayProblems.Day3;
 using AdventCalender.DayProblems.Day5;
 
 namespace AdventCalender {
@@ -31,6 +32,10 @@ namespace AdventCalender {
                 io.WriteOutput(input);
             }
 
+            // Day 3
+            Day3Problem1 day3Problem1 = new Day3Problem1();
+            var outpot = day3Problem1.Something("R8,U5,L5,D3", "U7, R6, D4, L4");
+            
             Console.ReadLine();
         }
 

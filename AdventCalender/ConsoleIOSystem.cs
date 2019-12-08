@@ -14,5 +14,13 @@ namespace AdventCalender.DayProblems.Day5
         public void WriteOutput(int parameter) {
             Console.WriteLine(parameter);
         }
+
+        public void WriteOutput(string parameter) {
+            Console.WriteLine(parameter);
+        }
+
+        public void WriteOutput(char parameter) {
+            Console.WriteLine(parameter);
+        }
     }
 }
