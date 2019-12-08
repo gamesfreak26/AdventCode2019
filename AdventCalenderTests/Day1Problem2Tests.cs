@@ -28,5 +28,13 @@ namespace AdventCalenderTests
             var sum = day1Problem2.SumNumber(100756);
             Assert.Equal(50346, sum);
         }
+
+        [Fact]
+        public void FuelTest() {
+            Day1Problem2 day1Problem2 = new Day1Problem2();
+            string[] numberArray = new[] { "14", "1969", "100756" };
+            var sum = day1Problem2.Sum(numberArray);
+            Assert.Equal(51314, sum);
+        }
     }
 }

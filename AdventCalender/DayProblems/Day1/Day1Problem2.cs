@@ -18,7 +18,7 @@ namespace AdventCalender.DayProblems
                 var lineTrim = line.Trim();
                 if (int.TryParse(lineTrim, out num))
                 {
-                    sum = SumNumber(num);
+                    sum += SumNumber(num);
                 }
             }
             return sum;
