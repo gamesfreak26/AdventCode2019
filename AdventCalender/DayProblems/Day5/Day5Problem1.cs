@@ -28,15 +28,14 @@ namespace AdventCalender.DayProblems.Day5
                         break;
                     }
                     case 3: {
-                        var userInput = Console.ReadLine();
+                        var userInput = GetInput();
                         var element1 = arrayOfInts[num + 1];
-                        if (int.TryParse(userInput, out num)) {
-                            arrayOfInts[element1] = num;
-                        }
+                        arrayOfInts[element1] = userInput;
                         break;
                     }
                     case 4: {
-
+                        var element1 = arrayOfInts[num + 1];
+                        WriteOutput(arrayOfInts[element1]);
                         break;
                     }
                     case 99:
