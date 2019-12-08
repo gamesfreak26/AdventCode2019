@@ -8,16 +8,6 @@ namespace AdventCalenderTests
 {
     public class Day2Problem1Tests
     {
-        //[Theory] 
-        //[InlineData(1, 0, 0, 0, 99)]
-
-
-        //[Fact]
-        //public void TestTest(string input, string output)
-        //{
-
-        //}
-
         [Fact]
         public void TestThatArrayIsCorrectlyInitialised()
         {
