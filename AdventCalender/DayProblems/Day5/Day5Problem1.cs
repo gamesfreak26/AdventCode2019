@@ -8,6 +8,11 @@ namespace AdventCalender.DayProblems.Day5
     {
         ConsoleIOSystem consoleIOSystem = new ConsoleIOSystem();
 
+        public string ReadLine(string path) {
+            var lines = System.IO.File.ReadAllText(path);
+            return lines;
+        }
+
         public int[] Something(int[] arrayOfInts) {
             for (int num = 0; num < arrayOfInts.Length; num++) {
                 switch (arrayOfInts[num]) {
