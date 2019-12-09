@@ -34,8 +34,51 @@ namespace AdventCalender {
 
             // Day 3
             Day3Problem1 day3Problem1 = new Day3Problem1();
-            var outpot = day3Problem1.Something("R8,U5,L5,D3", "U7, R6, D4, L4");
-            
+            var tuples =  day3Problem1.PopulateTuples();
+
+            (int, int) originTuple = (0, 0);
+            (int, int) tempTuple = originTuple;
+
+            List<(int, int)> wire1Tuple = new List<(int, int)>();
+            List<(int, int)> wire2Tuple = new List<(int, int)>();
+
+            var wire1 = tuples[0]; // eg. (R, 5)
+            var wire2 = tuples[1];
+
+            var num = 0;
+            var tupleDirectionNumber = 0;
+            Direction direction = new Direction();
+            (int, int) tuple;
+            var tmp1 = new List<(int, int)>();
+            var tmp2 = new List<(int, int)>();
+
+            foreach (var wire in wire1)
+            {
+                if (int.TryParse(wire.Item2, out num))
+                {
+                    tupleDirectionNumber = num;
+                }
+                
+                tmp1 = direction.AddDirection(wire.Item1, tupleDirectionNumber);
+                wire1Tuple.AddRange(tmp1);
+            }
+
+            foreach (var wire in wire2) {
+                if (int.TryParse(wire.Item2, out num)) {
+                    tupleDirectionNumber = num;
+                }
+
+                //tmp2 = direction.AddDirection(wire.Item1, tupleDirectionNumber, tempTuple);
+            }
+
+            var intersections = wire1Tuple.Intersect(wire2Tuple).ToArray();
+
+            var temp1 = new [] {(1, 1), (2, 2)};
+            var temp2 = new[] { (3, 3), (2, 2) };
+
+            var intersect = temp1.Intersect(temp2).ToArray();
+
+
             Console.ReadLine();
         }
 
