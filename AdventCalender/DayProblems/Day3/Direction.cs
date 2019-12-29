@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace AdventCalender.DayProblems.Day3
@@ -26,43 +27,56 @@ namespace AdventCalender.DayProblems.Day3
             _directions.Add("Right", (1, 0));
         }
 
-        public List<(int, int)> AddDirection(char direction, int adder)
+        public List<(int, int)> FindPoints(List<(char, string)> wire)
         {
-
+            var num = 0;
+            var tupleDirectionNumber = 0;
+            int x = 0;
+            int y = 0;
+            var tmp = (x, y);
             var positions = new List<(int, int)>();
-            var (x, y) = (0,0);
-            for (var i = 0; i < adder; i++)
-            {
 
-                switch (direction)
-                {
-                    case 'U':
-                    {
-                        positions.Add((x, y + i));
+            var direction = ' ';
+
+            foreach (var point in wire) {
+                if (int.TryParse(point.Item2, out num)) {
+                    tupleDirectionNumber = num;
+                }
+                direction = point.Item1;
+
+                switch (direction) {
+                    case 'U': {
+                        for (int i = 0; i < tupleDirectionNumber; i++)
+                        {
+                            tmp = (x, y + i);
+                            positions.Add(tmp);
+                        }
                         break;
                     }
-
-
-                    case 'D':
-                    {
-                        positions.Add((x, y - i));
+                    case 'D': {
+                        for (int i = 0; i < tupleDirectionNumber; i++) {
+                            tmp = (x, y - i);
+                            positions.Add(tmp);
+                        }
                         break;
                     }
-
-                    case 'L':
-                    {
-                        positions.Add((x - i, y));
+                    case 'L': {
+                        for (int i = 0; i < tupleDirectionNumber; i++) {
+                            tmp = (x - i, y);
+                            positions.Add((x - i, y));
+                        }
                         break;
-                    }
-
-                    case 'R':
-                    {
-                        positions.Add((x + i, y));
+                    }                    
+                    case 'R': {
+                        for (int i = 0; i < tupleDirectionNumber; i++) {
+                            tmp = (x + i, y);
+                            positions.Add((x - i, y));
+                        }
                         break;
                     }
                 }
             }
-            
+
             return positions;
         }
     }

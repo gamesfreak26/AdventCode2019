@@ -17,61 +17,30 @@ namespace AdventCalender {
             ConsoleIOSystem io = new ConsoleIOSystem();
 
             // Day 1
+            #region Day Code
             Day1Problem1(path1, out var sumofDay1Problem1);
-            io.WriteOutput(sumofDay1Problem1);
 
             Day1Problem2(path1, out var sumOfDay1Problem2);
-            io.WriteOutput(sumOfDay1Problem2);
 
             // Day 2
             Day2Problem1(path2, out var answer);
-            io.WriteOutput(answer);
 
             Day2Problem2(path2A, out var inputs);
-            foreach (var input in inputs) {
-                io.WriteOutput(input);
-            }
 
+
+            #endregion ^ Day Code
+            
             // Day 3
             Day3Problem1 day3Problem1 = new Day3Problem1();
             var tuples =  day3Problem1.PopulateTuples();
+            Direction direction = new Direction();
 
-            (int, int) originTuple = (0, 0);
-            (int, int) tempTuple = originTuple;
-
-            List<(int, int)> wire1Tuple = new List<(int, int)>();
-            List<(int, int)> wire2Tuple = new List<(int, int)>();
-
-            var wire1 = tuples[0]; // eg. (R, 5)
-            var wire2 = tuples[1];
 
             var num = 0;
+            var wire1 = tuples[0]; // eg. (R, 5)
             var tupleDirectionNumber = 0;
-            Direction direction = new Direction();
-            (int, int) tuple;
-            var tmp1 = new List<(int, int)>();
-            var tmp2 = new List<(int, int)>();
 
-            foreach (var wire in wire1)
-            {
-                if (int.TryParse(wire.Item2, out num))
-                {
-                    tupleDirectionNumber = num;
-                }
-                
-                tmp1 = direction.AddDirection(wire.Item1, tupleDirectionNumber);
-                wire1Tuple.AddRange(tmp1);
-            }
-
-            foreach (var wire in wire2) {
-                if (int.TryParse(wire.Item2, out num)) {
-                    tupleDirectionNumber = num;
-                }
-
-                //tmp2 = direction.AddDirection(wire.Item1, tupleDirectionNumber, tempTuple);
-            }
-
-            var intersections = wire1Tuple.Intersect(wire2Tuple).ToArray();
+            var listOfPoints = direction.FindPoints(wire1);
 
             var temp1 = new [] {(1, 1), (2, 2)};
             var temp2 = new[] { (3, 3), (2, 2) };
