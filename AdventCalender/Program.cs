@@ -42,6 +42,10 @@ namespace AdventCalender {
         private static void Day5Problem1(string path) {
             Day5Problem1 day5Problem1 = new Day5Problem1();
             var lines = day5Problem1.ReadLines(path);
+            var splitLines = lines.Split(",");
+
+            var intArray = splitLines.Select(x => int.Parse(x)).ToArray();
+            day5Problem1.OpCodes(intArray);
         }
 
         private static void Day3Problem1()
