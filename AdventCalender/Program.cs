@@ -13,28 +13,43 @@ namespace AdventCalender {
             string path1 = "InputFiles\\Day1Input.txt";
             string path2 = "InputFiles\\Day2Input.txt";
             string path2A = "InputFiles\\Day2InputA.txt";
+            string path5A = "InputFiles\\Day5Problem1.txt";
 
             ConsoleIOSystem io = new ConsoleIOSystem();
 
             // Day 1
             #region Day Code
-            Day1Problem1(path1, out var sumofDay1Problem1);
+            //Day1Problem1(path1, out var sumofDay1Problem1);
 
-            Day1Problem2(path1, out var sumOfDay1Problem2);
+            //Day1Problem2(path1, out var sumOfDay1Problem2);
 
-            // Day 2
-            Day2Problem1(path2, out var answer);
+            //// Day 2
+            //Day2Problem1(path2, out var answer);
 
-            Day2Problem2(path2A, out var inputs);
+            //Day2Problem2(path2A, out var inputs);
 
+            //// Day 3
+            //Day3Problem1();
 
             #endregion ^ Day Code
-            
-            // Day 3
+
+            // Day 5
+            Day5Problem1(path5A);
+
+            Console.ReadLine();
+        }
+
+        private static void Day5Problem1(string path) {
+            Day5Problem1 day5Problem1 = new Day5Problem1();
+            var lines = day5Problem1.ReadLines(path);
+        }
+
+        private static void Day3Problem1()
+        {
             Day3Problem1 day3Problem1 = new Day3Problem1();
-            var tuples =  day3Problem1.PopulateTuples();
+            var tuples = day3Problem1.PopulateTuples();
             Direction direction = new Direction();
-            
+
 
             var num = 0;
             var wire1 = tuples[0]; // eg. (R, 5)
@@ -44,9 +59,6 @@ namespace AdventCalender {
             var pointsOfWire2 = direction.FindPoints(wire2).ToArray();
 
             var intersections = pointsOfWire1.Intersect(pointsOfWire2).ToArray();
-
-
-            Console.ReadLine();
         }
 
         private static void Day2Problem2(string path2A, out int[] inputs) {
