@@ -7,6 +7,10 @@ namespace AdventCalender.DayProblems.Day3
 {
     public class Direction
     {
+        private int x = 0;
+        private int y = 0;
+        private (int X, int Y) tmp = (0, 0);
+        private List<(int,int)> positions = new List<(int, int)>();
 
         public enum Directions
         {
@@ -31,10 +35,9 @@ namespace AdventCalender.DayProblems.Day3
         {
             var num = 0;
             var tupleDirectionNumber = 0;
-            int x = 0;
-            int y = 0;
-            var tmp = (x, y);
-            var positions = new List<(int, int)>();
+
+   
+            
 
             var direction = ' ';
 
@@ -45,36 +48,40 @@ namespace AdventCalender.DayProblems.Day3
                 direction = point.Item1;
 
                 switch (direction) {
-                    case 'U': {
+                    case 'U': 
                         for (int i = 0; i < tupleDirectionNumber; i++)
                         {
                             tmp = (x, y + i);
                             positions.Add(tmp);
                         }
                         break;
-                    }
-                    case 'D': {
+                    
+                    case 'D': 
                         for (int i = 0; i < tupleDirectionNumber; i++) {
                             tmp = (x, y - i);
                             positions.Add(tmp);
                         }
                         break;
-                    }
-                    case 'L': {
-                        for (int i = 0; i < tupleDirectionNumber; i++) {
+                    
+                    case 'L':
+                        for (int i = 0; i < tupleDirectionNumber; i++)
+                        {
                             tmp = (x - i, y);
                             positions.Add((x - i, y));
                         }
+
                         break;
-                    }                    
-                    case 'R': {
-                        for (int i = 0; i < tupleDirectionNumber; i++) {
+                    case 'R':
+                        for (int i = 0; i < tupleDirectionNumber; i++)
+                        {
                             tmp = (x + i, y);
                             positions.Add((x - i, y));
                         }
+
                         break;
-                    }
                 }
+
+                ( x, y ) = tmp;
             }
 
             return positions;
