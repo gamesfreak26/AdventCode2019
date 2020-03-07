@@ -34,18 +34,16 @@ namespace AdventCalender {
             Day3Problem1 day3Problem1 = new Day3Problem1();
             var tuples =  day3Problem1.PopulateTuples();
             Direction direction = new Direction();
-
+            
 
             var num = 0;
             var wire1 = tuples[0]; // eg. (R, 5)
-            var tupleDirectionNumber = 0;
+            var wire2 = tuples[1];
 
-            var listOfPoints = direction.FindPoints(wire1);
+            var pointsOfWire1 = direction.FindPoints(wire1).ToArray();
+            var pointsOfWire2 = direction.FindPoints(wire2).ToArray();
 
-            var temp1 = new [] {(1, 1), (2, 2)};
-            var temp2 = new[] { (3, 3), (2, 2) };
-
-            var intersect = temp1.Intersect(temp2).ToArray();
+            var intersections = pointsOfWire1.Intersect(pointsOfWire2).ToArray();
 
 
             Console.ReadLine();
